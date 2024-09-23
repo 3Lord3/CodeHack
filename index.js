@@ -36,7 +36,7 @@ closeButton.addEventListener("click", () => {
 });
 
 bottomWrapper.addEventListener('click', (event) => {
-    if (event.target.tagName !== 'BUTTON') return;
+    if (event.target && event.target.tagName !== 'BUTTON') return;
 
     rotate(event);
 });
@@ -55,8 +55,8 @@ function startGame() {
 
     endWrapper.style.display = 'none';
     startWrapper.style.display = 'none';
-    wrapper.style.display = 'block';
-    timerElement.style.display = 'flex';
+    wrapper.style.display = '';
+    timerElement.style.display = '';
 
     isFirstTurnCompleted = false;
 
@@ -175,7 +175,7 @@ function checkTries() {
     const isOutOfRange = tries > 100 || tries <= 0;
 
     if (isOutOfRange || isNaN(tries)) {
-        showDialog('error', 'Введены некорректные значения')
+        showDialog('error', 'Количество действий должно быть в диапазоне [1:100]')
         return false;
     }
 
@@ -188,7 +188,7 @@ function checkTimer() {
     const isOutOfRange = timerValue > 60 || timerValue < 0;
 
     if (isOutOfRange || isNaN(timerValue)) {
-        showDialog('error', 'Введены некорректные значения')
+        showDialog('error', 'Значение таймера должно быть в диапазоне [0:60] секунд')
         return false;
     }
 
@@ -290,7 +290,7 @@ function checkResult() {
 
     if (isVictory || !tries) {
         wrapper.style.display = 'none';
-        endWrapper.style.display = 'flex';
+        endWrapper.style.display = '';
 
         if (isVictory) {
             resultElement.textContent = 'Победа! 🥳';
@@ -319,7 +319,7 @@ function resetPositions() {
 
 function backToMenu() {
     endWrapper.style.display = 'none';
-    startWrapper.style.display = 'flex';
+    startWrapper.style.display = '';
 }
 
 function showDialog(type, text) {
