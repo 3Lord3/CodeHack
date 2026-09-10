@@ -4,7 +4,7 @@
 
 A code-matching puzzle game with a limited number of moves.
 
-https://3lord3.github.io/codehack.github.io/
+https://codehack.vercel.app/
 
 ## Stack
 
@@ -53,11 +53,12 @@ tests next to the code  # *.test.ts(x)
 
 ## Deployment
 
-The site is published as a **project page**, so `vite.config.ts` uses:
+The site is deployed on **Vercel**, which serves it from the domain root, so
+`vite.config.ts` uses:
 
 ```ts
-base: '/codehack.github.io/';
+base: '/';
 ```
 
-You can ship the `dist/` folder via GitHub Pages (a branch) or GitHub Actions;
-if you change how it is published, make sure `base` matches the page URL.
+Vercel auto-detects Vite: build command `npm run build`, output directory
+`dist`. No extra configuration is required.

@@ -4,7 +4,7 @@
 
 Игра на сопоставление кода с ограниченными попытками.
 
-https://3lord3.github.io/codehack.github.io/
+https://codehack.vercel.app/
 
 ## Стек
 
@@ -52,12 +52,12 @@ tests рядом с кодом     # *.test.ts(x)
 
 ## Деплой
 
-Сайт опубликован как **project page**, поэтому в `vite.config.ts` задано:
+Сайт разворачивается на **Vercel**, который отдаёт его из корня домена,
+поэтому в `vite.config.ts` задано:
 
 ```ts
-base: '/codehack.github.io/';
+base: '/';
 ```
 
-Собрать и выложить можно через GitHub Pages (ветка с папкой `dist`) или
-GitHub Actions; при смене способа публикации проверьте, что `base` совпадает
-с URL страницы.
+Vercel сам определяет Vite: команда сборки `npm run build`, каталог вывода
+`dist`. Дополнительный конфиг не нужен.

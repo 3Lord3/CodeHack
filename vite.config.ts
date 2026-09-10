@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Published at https://3lord3.github.io/codehack.github.io/, so all assets
-// must be prefixed with the repository name.
+// Deployed on Vercel at the domain root, so assets resolve from `/`.
 export default defineConfig({
-  base: '/codehack.github.io/',
+  base: '/',
   plugins: [react()],
   build: {
     outDir: 'dist',
