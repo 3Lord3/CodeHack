@@ -1,61 +1,63 @@
 # 🔒️ CodeHack
 
-Игра на сопоставление кода с ограниченными попытками.
+**English** | [Русский](./README.ru.md)
+
+A code-matching puzzle game with a limited number of moves.
 
 https://3lord3.github.io/codehack.github.io/
 
-## Стек
+## Stack
 
-- **React 19 + TypeScript** — UI и типизация
-- **Jotai** — состояние игры (атомы вместо глобальных `let` и ручного DOM)
-- **Vite** — дев-сервер и сборка
-- **Vitest** — тесты логики и взаимодействия
+- **React 19 + TypeScript** — UI and type safety
+- **Jotai** — game state (atoms instead of global `let`s and manual DOM work)
+- **Vite** — dev server and build
+- **Vitest** — logic and interaction tests
 
-## Скрипты
+## Scripts
 
 ```bash
 npm install
-npm run dev      # дев-сервер
-npm run build    # tsc + production-сборка в dist/
-npm run preview  # локальный предпросмотр сборки
-npm test         # прогон тестов
+npm run dev      # dev server
+npm run build    # tsc + production build into dist/
+npm run preview  # preview the production build locally
+npm test         # run tests
 ```
 
-## Структура
+## Structure
 
 ```
 index.html
-public/img/            # favicon, lock (статика)
+public/img/            # favicon, lock (static assets)
 src/
-  main.tsx             # точка входа
-  App.tsx              # выбор экрана: menu / game / end
-  atoms.ts             # состояние и действия (Jotai)
-  game.ts              # чистая логика: код, вращение 2x2-блоков, палитра
+  main.tsx             # entry point
+  App.tsx              # screen switch: menu / game / end
+  atoms.ts             # state and actions (Jotai)
+  game.ts              # pure logic: code, 2x2 block rotation, palette
   components/
     StartScreen.tsx
     GameScreen.tsx
     EndScreen.tsx
     Dialog.tsx
-  styles/              # исходные CSS (перенесены без изменений)
-tests рядом с кодом     # *.test.ts(x)
+  styles/              # original CSS (moved unchanged)
+tests next to the code  # *.test.ts(x)
 ```
 
-## Как устроена логика
+## How the logic works
 
-- Панель — это плоская сетка 2×4 из 8 ячеек. Вращение 2×2-блока
-  (`left` / `center` / `right`) — чистая функция `rotateCells`, а не
-  манипуляции с DOM через `before`/`after`.
-- Ячейка хранит символ и цвет, поэтому при вращении они перемещаются вместе.
-- Экраны (`menu` / `game` / `end`) и диалог — тоже атомы Jotai.
+- The panel is a flat 2×4 grid of 8 cells. Rotating a 2×2 block
+  (`left` / `center` / `right`) is a pure `rotateCells` function rather than
+  DOM manipulation with `before`/`after`.
+- A cell stores both its character and color, so they travel together when
+  the board rotates.
+- Screens (`menu` / `game` / `end`) and the dialog are Jotai atoms too.
 
-## Деплой
+## Deployment
 
-Сайт опубликован как **project page**, поэтому в `vite.config.ts` задано:
+The site is published as a **project page**, so `vite.config.ts` uses:
 
 ```ts
 base: '/codehack.github.io/';
 ```
 
-Собрать и выложить можно через GitHub Pages (ветка с папкой `dist`) или
-GitHub Actions; при смене способа публикации проверьте, что `base` совпадает
-с URL страницы.
+You can ship the `dist/` folder via GitHub Pages (a branch) or GitHub Actions;
+if you change how it is published, make sure `base` matches the page URL.
