@@ -4,72 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./css/index.css">
-    <script defer src="index.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <title>CodeHack</title>
 </head>
 
 <body>
-    <div class="start-wrapper">
-        <h1>C<img src="./img/lock.png" alt="">deHack</h1>
-        <div class="actions-wrapper">
-            <div class="block actions-field">🖱️ Количество действий</div>
-            <input id="actions-input" class="block" type="number" value="3" min="1" max="100">
-        </div>
-        <div class="timer-wrapper">
-            <div class="block timer-field">⏳️ Таймер (0 = Выкл)</div>
-            <input id="timer-input" class="block" type="number" value="0" min="0" max="60">
-        </div>
-        <div class="color-wrapper">
-            <div class="block color-field">🎨 Цветной режим
-                <input id="color-input" type="checkbox">
-            </div>
-        </div>
-        <button id="start-button" class="block">⌨️ Начать</button>
-    </div>
-    <div class="wrapper">
-        <div class="info-wrapper">
-            <div id="timer" class="block"></div>
-            <div id="tries" class="block"></div>
-            <div id="code" class="block"></div>
-        </div>
-        <div class="panel">
-            <div id="left-top" class="cell left-cell"></div>
-            <div class="cell left-cell center-cell"></div>
-            <div class="cell center-cell right-cell"></div>
-            <div id="right-top" class="cell right-cell"></div>
-            <div id="left-bottom" class="cell left-cell"></div>
-            <div class="cell left-cell center-cell"></div>
-            <div class="cell center-cell right-cell"></div>
-            <div id="right-bottom" class="cell right-cell"></div>
-        </div>
-        <div class="bottom-wrapper">
-            <div class="buttons-block">
-                <button class="block left-button clockwise">Левый ↩️</button>
-                <button class="block left-button">Левый ↪️</button>
-            </div>
-            <div class="buttons-block">
-                <button class="block center-button clockwise">Центральный ↩️</button>
-                <button class="block center-button">Центральный ↪️</button>
-            </div>
-            <div class="buttons-block">
-                <button class="block right-button clockwise">Правый ↩️</button>
-                <button class="block right-button">Правый ↪️</button>
-            </div>
-        </div>
-    </div>
-    <div class="end-wrapper">
-        <div id="result" class="block"></div>
-        <button id="reset" class="block">🔄</button>
-    </div>
-    <dialog class="dialog">
-        <div class="dialog-wrapper">
-            <h2 class="dialog-title"></h2>
-            <p class="dialog-text"></p>
-            <button class="block dialog-close" autofocus>Закрыть</button>
-        </div>
-    </dialog>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
